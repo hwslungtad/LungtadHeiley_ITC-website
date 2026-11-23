@@ -31,6 +31,12 @@
 }
 
 @layer base {
+  *, 
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+  
   html {
     scroll-behavior: smooth;
     background: var(--bg);
@@ -38,6 +44,7 @@
   }
 
   body {
+    margin: 0;
     min-width: 320px;
     min-height: 100vh;
     background: var(--bg);
@@ -54,6 +61,23 @@
     outline-offset: 3px;
   }
 
+  h1,
+  h2,
+  p,
+  ul {
+    margin: 0;
+  }
+  
+  button,
+  input {
+    font: inherit;
+  }
+
+  img {
+    max-width: 100%;
+    display: block;
+  }
+  
   button {
     cursor: pointer;
   }
@@ -173,8 +197,8 @@
 }
 
 .contact-card__image {
-  width: 86px;
-  height: 86px;
+  width: 72px;
+  height: 72px;
   position: absolute;
   right: 10px;
   bottom: 7px;
@@ -531,6 +555,12 @@ tbody tr:last-child td {
   justify-content: end;
 }
 
+.delete-row .field,
+.tax-layout > *,
+.tax-layout .field {
+  min-width: 0;
+}
+
 .inline-form {
   display: flex;
   align-items: end;
@@ -539,10 +569,13 @@ tbody tr:last-child td {
 
 .inline-form .field {
   width: 240px;
+  min-width: 0;
+  flex: 0 1 240px;
 }
 
 .inline-form .primary-button {
   margin: 0;
+  flex: 0 0 auto;
 }
 
 .result-grid {
